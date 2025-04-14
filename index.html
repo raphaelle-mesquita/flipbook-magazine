@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
   <title>Ground Controls</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000; /* ou transparent se seu site permitir */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .iframe-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      padding-bottom: 65%; /* controla a proporção do flipbook + setas */
-      height: 0;
-      overflow: hidden;
-    }
-
-    .iframe-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1200px; /* largura real do conteúdo do flipbook */
-      height: 750px;  /* altura total com as setas visíveis */
-      max-width: 100%;
-      border: none;
-    }
-
-    @media (max-width: 1300px) {
-      .iframe-wrapper iframe {
-        width: 1000px;
-        height: 650px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .iframe-wrapper iframe {
-        width: 800px;
-        height: 550px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .iframe-wrapper iframe {
-        width: 600px;
-        height: 450px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .iframe-wrapper iframe {
-        width: 90vw;
-        height: 70vh;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <div class="iframe-wrapper">
-    <iframe
-      src="https://flipbook-magazine.vercel.app/"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
+  <div class="flipbook-wrapper">
+    <div class="flipbook">
+      <div class="hard page-01"></div>
+      <div class="hard page-02"></div>
+
+      <div class="page page-03"></div>
+      <div class="page page-04"></div>
+      <div class="page page-05"></div>
+      <div class="page page-06"></div>
+      <div class="page page-07"></div>
+      <div class="page page-08"></div>
+      <div class="page page-09"></div>
+      <div class="page page-10"></div>
+      <div class="page page-11"></div>
+      <div class="page page-12"></div>
+      <div class="page page-13"></div>
+      <div class="page page-14"></div>
+
+      <div class="hard page-15"></div>
+      <div class="hard page-16"></div>
+    </div>
+
+    <div class="flipbook-nav">
+  <button id="prevPage">&#8592;</button> <!-- ← -->
+  <button id="nextPage">&#8594;</button> <!-- → -->
+</div>
+    
   </div>
+
+  <script src="jquery.js"></script>
+  <script src="turn.js"></script>
+  <script>
+    const flip = $(".flipbook");
+    flip.turn();
+
+    // Efeito teaser automático
+    let teaserCount = 0;
+    const maxTeaser = 3;
+
+    const flipTeaser = setInterval(() => {
+      teaserCount++;
+      flip.turn('next');
+      if (teaserCount >= maxTeaser) {
+        clearInterval(flipTeaser);
+        setTimeout(() => {
+          flip.turn('page', 1);
+        }, 1500);
+      }
+    }, 1800);
+
+    // Setas de navegação
+    document.getElementById("prevPage").addEventListener("click", () => {
+      flip.turn("previous");
+    });
+
+    document.getElementById("nextPage").addEventListener("click", () => {
+      flip.turn("next");
+    });
+  </script>
 </body>
+
 </html>
