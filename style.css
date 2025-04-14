@@ -77,20 +77,21 @@ body {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .flipbook-nav button {
-  background-color: #000;
-  color: #fff;
-  font-size: 20px;
-  padding: 10px 18px;
-  border: none;
+  background: transparent;
+  color: white;
+  font-size: 36px;
+  padding: 8px 20px;
+  border: 2px solid white;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .flipbook-nav button:hover {
-  background-color: #444;
+  background: white;
+  color: black;
 }
