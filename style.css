@@ -18,15 +18,15 @@ body {
 }
 
 .flipbook {
-  width: 1600px;
-  height: 800px;
+  width: 1200px; /* 2 páginas lado a lado */
+  height: 600px; /* altura de cada página */
   position: relative;
 }
 
 .page,
 .hard {
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUNDS DAS PÃGINAS */
+/* Imagens de fundo das páginas */
 .page-01 { background-image: url("images/01.jpg"); }
 .page-02 { background-image: url("images/02.jpg"); }
 .page-03 { background-image: url("images/03.jpg"); }
@@ -52,7 +52,7 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* Bordas arredondadas nos cantos externos */
+/* Cantos arredondados apenas nas extremidades externas */
 .page:first-child,
 .hard:first-child {
   border-top-left-radius: 12px;
