@@ -48,11 +48,9 @@
   // ✅ SOM DE PÁGINA
   const flipSound = document.getElementById("flipSound");
 
-  <audio id="flipSound" src="audio/page-flip.mp3" preload="auto"></audio>
   $(".flipbook").bind("turning", function(event, page, view) {
     flipSound.currentTime = 0;
     flipSound.play();
-  
   });
 
   // ✅ BOTÕES DE NAVEGAÇÃO
@@ -66,4 +64,6 @@
 </script>
 
 </body>
+<audio id="flipSound" src="audio/page-flip.mp3" preload="auto"></audio>
+
 </html>
