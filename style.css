@@ -34,11 +34,12 @@ body {
 .hard {
   width: 500px;
   height: 500px;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;      
+  background-position: center center;
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;
+  box-shadow: none;
 }
 
 /* BACKGROUNDS DAS PÁGINAS */
