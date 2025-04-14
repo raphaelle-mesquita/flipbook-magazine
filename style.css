@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: transparent;
+}
+
 .flipbook {
   width: 800px;
   height: 800px;
@@ -14,7 +32,7 @@
   overflow: hidden;
 }
 
-/* Capa e páginas com fundo da imagem */
+/* Páginas com imagens */
 .page-01 { background-image: url("images/01.jpg"); }
 .page-02 { background-image: url("images/02.jpg"); }
 .page-03 { background-image: url("images/03.jpg"); }
@@ -32,7 +50,7 @@
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* Cantos arredondados só nas extremidades externas */
+/* Bordas arredondadas só nos cantos externos */
 .page:first-child,
 .hard:first-child {
   border-top-left-radius: 12px;
