@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
   margin: 0;
@@ -17,9 +17,16 @@ body {
   overflow: hidden;
 }
 
+.flipbook-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .flipbook {
-  width: 1200px; /* 2 páginas lado a lado */
-  height: 600px; /* altura de cada página */
+  width: 1200px; /* 2 páginas de 600px */
+  height: 600px;
   position: relative;
 }
 
@@ -34,7 +41,7 @@ body {
   overflow: hidden;
 }
 
-/* Imagens de fundo das páginas */
+/* BACKGROUNDS DAS PÁGINAS */
 .page-01 { background-image: url("images/01.jpg"); }
 .page-02 { background-image: url("images/02.jpg"); }
 .page-03 { background-image: url("images/03.jpg"); }
@@ -52,7 +59,7 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* Cantos arredondados apenas nas extremidades externas */
+/* Cantos arredondados nas extremidades */
 .page:first-child,
 .hard:first-child {
   border-top-left-radius: 12px;
@@ -64,6 +71,8 @@ body {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
+/* NAVEGAÇÃO */
 .flipbook-nav {
   margin-top: 20px;
   display: flex;
@@ -74,8 +83,8 @@ body {
 .flipbook-nav button {
   background-color: #000;
   color: #fff;
-  font-size: 24px;
-  padding: 10px 20px;
+  font-size: 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
