@@ -18,7 +18,7 @@ body {
 }
 
 .flipbook {
-  width: 800px;
+  width: 1600px;
   height: 800px;
   position: relative;
 }
@@ -34,7 +34,7 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUNDS DAS PÁGINAS */
+/* BACKGROUNDS DAS PÃGINAS */
 .page-01 { background-image: url("images/01.jpg"); }
 .page-02 { background-image: url("images/02.jpg"); }
 .page-03 { background-image: url("images/03.jpg"); }
