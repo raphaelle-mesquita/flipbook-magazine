@@ -38,30 +38,36 @@
     
   </div>
 
- <script src="jquery.js"></script>
-<script src="turn.js"></script>
+  <script src="jquery.js"></script>
+  <script src="turn.js"></script>
+  <script>
+    const flip = $(".flipbook");
+    flip.turn();
 
-<script>
-  const flip = $(".flipbook");
-  flip.turn();
+    // Efeito teaser automático
+    let teaserCount = 0;
+    const maxTeaser = 3;
 
-  // ✅ SOM DE PÁGINA
-  const flipSound = document.getElementById("flipSound");
+    const flipTeaser = setInterval(() => {
+      teaserCount++;
+      flip.turn('next');
+      if (teaserCount >= maxTeaser) {
+        clearInterval(flipTeaser);
+        setTimeout(() => {
+          flip.turn('page', 1);
+        }, 1000);
+      }
+    }, 1200);
 
-  $(".flipbook").bind("turning", function(event, page, view) {
-    flipSound.currentTime = 0;
-    flipSound.play();
-  });
+    // Setas de navegação
+    document.getElementById("prevPage").addEventListener("click", () => {
+      flip.turn("previous");
+    });
 
-  // ✅ BOTÕES DE NAVEGAÇÃO
-  document.getElementById("prevPage").addEventListener("click", () => {
-    flip.turn("previous");
-  });
-
-  document.getElementById("nextPage").addEventListener("click", () => {
-    flip.turn("next");
-  });
-</script>
-
+    document.getElementById("nextPage").addEventListener("click", () => {
+      flip.turn("next");
+    });
+  </script>
 </body>
+
 </html>
