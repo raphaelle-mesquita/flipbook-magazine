@@ -47,21 +47,4 @@
   <script>
     $(".flipbook").turn();
   </script>
-
-   let teaserCount = 0;
-    const maxTeaser = 3;
-
-    const flipTeaser = setInterval(() => {
-      teaserCount++;
-      flip.turn('next');
-
-      if (teaserCount >= maxTeaser) {
-        clearInterval(flipTeaser);
-        setTimeout(() => {
-          flip.turn('page', 1); // volta pro início
-        }, 1500);
-      }
-    }, 1800);
-  });
-  
 </body>
