@@ -8,23 +8,25 @@
 }
 
 body {
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
+  background: #fff;
   overflow: hidden;
-  background: transparent;
 }
 
 .flipbook {
   width: 800px;
   height: 800px;
+  position: relative;
 }
 
 .page,
 .hard {
-  width: 100%;
-  height: 100%;
+  width: 800px;
+  height: 800px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,7 +34,7 @@ body {
   overflow: hidden;
 }
 
-/* Páginas com imagens */
+/* BACKGROUNDS DAS PÁGINAS */
 .page-01 { background-image: url("images/01.jpg"); }
 .page-02 { background-image: url("images/02.jpg"); }
 .page-03 { background-image: url("images/03.jpg"); }
@@ -50,7 +52,7 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* Bordas arredondadas só nos cantos externos */
+/* Bordas arredondadas nos cantos externos */
 .page:first-child,
 .hard:first-child {
   border-top-left-radius: 12px;
