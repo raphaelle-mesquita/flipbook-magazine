@@ -42,9 +42,27 @@
     <div class="hard">Thank You <small>~ HankTheTank</small></div>
   </div>
 
-  <script src="jquery.js"></script>
-  <script src="turn.js"></script>
-  <script>
-    $(".flipbook").turn();
-  </script>
+ <script src="jquery.js"></script>
+<script src="turn.js"></script>
+<script>
+  const flip = $(".flipbook");
+
+  flip.turn();
+
+  // Efeito teaser automático: vira 3 páginas, depois volta pro início
+  let teaserCount = 0;
+  const maxTeaser = 3;
+
+  const flipTeaser = setInterval(() => {
+    teaserCount++;
+    flip.turn('next');
+
+    if (teaserCount >= maxTeaser) {
+      clearInterval(flipTeaser);
+      setTimeout(() => {
+        flip.turn('page', 1); // volta pro início
+      }, 1500);
+    }
+  }, 1800);
+</script>
 </body>
