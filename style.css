@@ -24,16 +24,19 @@ body {
   justify-content: center;
 }
 
+/* Responsivo com base na tela */
 .flipbook {
-  width: 1000px; /* 2 páginas de 500px */
-  height: 500px;
+  width: 90vw;          /* 90% da largura da tela */
+  height: 45vw;         /* altura proporcional ao layout de 2 páginas */
+  max-width: 1000px;
+  max-height: 500px;
   position: relative;
 }
 
 .page,
 .hard {
-  width: 500px;
-  height: 500px;
+  width: 50%;                /* cada página ocupa metade do flipbook */
+  height: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,4 +97,17 @@ body {
 .flipbook-nav button:hover {
   background: white;
   color: black;
+}
+
+/* MOBILE ADAPTATION (opcional para telas pequenas) */
+@media (max-width: 768px) {
+  .flipbook {
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .flipbook-nav button {
+    font-size: 16px;
+    padding: 6px 16px;
+  }
 }
