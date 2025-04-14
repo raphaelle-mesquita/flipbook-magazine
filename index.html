@@ -58,5 +58,34 @@
     }, 1800);
   </script>
 </body>
+<script>
+  const flip = $(".flipbook");
+  flip.turn();
+
+  // Efeito teaser automático
+  let teaserCount = 0;
+  const maxTeaser = 3;
+
+  const flipTeaser = setInterval(() => {
+    teaserCount++;
+    flip.turn('next');
+
+    if (teaserCount >= maxTeaser) {
+      clearInterval(flipTeaser);
+      setTimeout(() => {
+        flip.turn('page', 1);
+      }, 1500);
+    }
+  }, 1800);
+
+  // Controles manuais com setas
+  document.getElementById("prevPage").addEventListener("click", () => {
+    flip.turn("previous");
+  });
+
+  document.getElementById("nextPage").addEventListener("click", () => {
+    flip.turn("next");
+  });
+</script>
 
 </html>
