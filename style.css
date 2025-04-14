@@ -25,15 +25,15 @@ body {
 }
 
 .flipbook {
-  width: 1200px; /* 2 páginas de 600px */
-  height: 600px;
+  width: 1000px; /* 2 páginas de 500px */
+  height: 500px;
   position: relative;
 }
 
 .page,
 .hard {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
