@@ -1867,4 +1867,11 @@
     for (a in c) if (void 0 !== b.style[a]) return c[a];
   };
   f.findPos = C;
+
+  const flipSound = document.getElementById("flipSound");
+
+$(".flipbook").bind("turning", function(event, page, view) {
+  flipSound.currentTime = 0;
+  flipSound.play();
+});
 })(jQuery);
