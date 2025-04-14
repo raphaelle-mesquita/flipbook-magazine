@@ -9,83 +9,64 @@
 </head>
 
 <body>
-  <div class="flipbook">
+  <div class="flipbook-wrapper">
+    <div class="flipbook">
+      <div class="hard page-01"></div>
+      <div class="hard page-02"></div>
+
+      <div class="page page-03"></div>
+      <div class="page page-04"></div>
+      <div class="page page-05"></div>
+      <div class="page page-06"></div>
+      <div class="page page-07"></div>
+      <div class="page page-08"></div>
+      <div class="page page-09"></div>
+      <div class="page page-10"></div>
+      <div class="page page-11"></div>
+      <div class="page page-12"></div>
+      <div class="page page-13"></div>
+      <div class="page page-14"></div>
+
+      <div class="hard page-15"></div>
+      <div class="hard page-16"></div>
+    </div>
+
     <div class="flipbook-nav">
-  <button id="prevPage">⬅️</button>
-  <button id="nextPage">➡️</button>
-</div>
-    <div class="hard page-01"></div>
-    <div class="hard page-02"></div>
-
-    <div class="page page-03"></div>
-    <div class="page page-04"></div>
-    <div class="page page-05"></div>
-    <div class="page page-06"></div>
-    <div class="page page-07"></div>
-    <div class="page page-08"></div>
-    <div class="page page-09"></div>
-    <div class="page page-10"></div>
-    <div class="page page-11"></div>
-    <div class="page page-12"></div>
-    <div class="page page-13"></div>
-    <div class="page page-14"></div>
-
-    <div class="hard page-15"></div>
-    <div class="hard page-16"></div>
+      <button id="prevPage">⬅️</button>
+      <button id="nextPage">➡️</button>
+    </div>
   </div>
 
   <script src="jquery.js"></script>
   <script src="turn.js"></script>
   <script>
     const flip = $(".flipbook");
-
     flip.turn();
 
-    // Efeito teaser automático: vira 3 páginas, depois volta pro início
+    // Efeito teaser automático
     let teaserCount = 0;
     const maxTeaser = 3;
 
     const flipTeaser = setInterval(() => {
       teaserCount++;
       flip.turn('next');
-
       if (teaserCount >= maxTeaser) {
         clearInterval(flipTeaser);
         setTimeout(() => {
-          flip.turn('page', 1); // volta pro início
+          flip.turn('page', 1);
         }, 1500);
       }
     }, 1800);
+
+    // Setas de navegação
+    document.getElementById("prevPage").addEventListener("click", () => {
+      flip.turn("previous");
+    });
+
+    document.getElementById("nextPage").addEventListener("click", () => {
+      flip.turn("next");
+    });
   </script>
 </body>
-<script>
-  const flip = $(".flipbook");
-  flip.turn();
-
-  // Efeito teaser automático
-  let teaserCount = 0;
-  const maxTeaser = 3;
-
-  const flipTeaser = setInterval(() => {
-    teaserCount++;
-    flip.turn('next');
-
-    if (teaserCount >= maxTeaser) {
-      clearInterval(flipTeaser);
-      setTimeout(() => {
-        flip.turn('page', 1);
-      }, 1500);
-    }
-  }, 1800);
-
-  // Controles manuais com setas
-  document.getElementById("prevPage").addEventListener("click", () => {
-    flip.turn("previous");
-  });
-
-  document.getElementById("nextPage").addEventListener("click", () => {
-    flip.turn("next");
-  });
-</script>
 
 </html>
