@@ -68,6 +68,24 @@
       flip.turn("next");
     });
   </script>
+  <script>
+  $(document).ready(function(){
+    $('#flipbook').turn({
+      width: 1000,
+      height: 500,
+      autoCenter: true
+    });
+
+    // Clique no flipbook para abrir em nova aba
+    document.querySelector('.flipbook').addEventListener('click', function (event) {
+      // Só abre se clicar fora dos botões de navegação
+      if (!event.target.closest('.flipbook-nav')) {
+        window.open('https://flipbook-magazine.vercel.app/', '_blank');
+      }
+    });
+  });
+</script>
+
 </body>
 
 </html>
