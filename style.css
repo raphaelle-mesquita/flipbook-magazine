@@ -24,15 +24,14 @@ body {
   justify-content: center;
 }
 
-/* Flipbook sempre com borda arredondada */
 .flipbook {
   width: 1200px;
   height: 600px;
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
-  border-radius: 16px; /* <<< borda sempre ativa */
-  overflow: hidden; /* importante pra borda funcionar direito */
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 /* Páginas */
@@ -73,6 +72,8 @@ body {
   gap: 16px;
 }
 
+/* Estilo dos botões de navegação e botão view PDF */
+.flipbook-nav button,
 .view-pdf-button {
   background: transparent;
   color: white;
@@ -85,15 +86,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.view-pdf-button:hover {
-  background: white;
-  color: black;
-}
-
-}
-
 .flipbook-nav button:hover,
-#fullscreenBtn:hover {
+.view-pdf-button:hover {
   background: white;
   color: black;
 }
@@ -107,7 +101,8 @@ body {
     max-height: 90vw;
   }
 
-  .flipbook-nav button {
+  .flipbook-nav button,
+  .view-pdf-button {
     font-size: 16px;
     padding: 6px 16px;
   }
