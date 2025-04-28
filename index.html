@@ -46,19 +46,25 @@
       const flip = $('#flipbook');
 
       function adjustFlipbook() {
-        if (window.innerWidth < 768) {
-          if (window.innerWidth > window.innerHeight) {
-            flip.turn('size', 700, 500);
-            flip.turn('display', 'double');
-          } else {
-            flip.turn('size', 400, 400);
-            flip.turn('display', 'single');
-          }
-        } else {
-          flip.turn('size', 1200, 600);
-          flip.turn('display', 'double');
-        }
-      }
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  if (width < 768 && height > width) {
+    // 📱 Mobile em pé
+    flip.turn('size', 400, 400);
+    flip.turn('display', 'single');
+
+  } else if (width < 1024 && width > height) {
+    // 📱 Mobile deitado
+    flip.turn('size', 600, 350);
+    flip.turn('display', 'double');
+
+  } else {
+    // 🖥 Desktop
+    flip.turn('size', 1200, 600);
+    flip.turn('display', 'double');
+  }
+}
 
       flip.turn({
         width: 1200,
