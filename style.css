@@ -30,7 +30,6 @@ body {
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
-  overflow: hidden;
 }
 
 /* Páginas */
@@ -41,46 +40,27 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: none;
   overflow: hidden;
+  border: none;
 }
 
-/* Bordas específicas */
-/* Borda esquerda da PRIMEIRA página */
+/* CAPA (somente lado direito arredondado) */
 .hard:first-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+/* CONTRACAPA (última página, lado esquerdo arredondado) */
+.hard:last-child {
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
 }
 
-/* Borda direita da ÚLTIMA página */
-.hard:last-child {
+/* Mobile (apenas 1 página visível) */
+.page.single-page {
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
 }
-
-/* Se for apenas uma página visível (mobile ou capa) */
-.page:first-child {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-}
-
-/* BACKGROUNDS DAS PÁGINAS */
-.page-01 { background-image: url("images/01.jpg"); }
-.page-02 { background-image: url("images/02.jpg"); }
-.page-03 { background-image: url("images/03.jpg"); }
-.page-04 { background-image: url("images/04.jpg"); }
-.page-05 { background-image: url("images/05.jpg"); }
-.page-06 { background-image: url("images/06.jpg"); }
-.page-07 { background-image: url("images/07.jpg"); }
-.page-08 { background-image: url("images/08.jpg"); }
-.page-09 { background-image: url("images/09.jpg"); }
-.page-10 { background-image: url("images/10.jpg"); }
-.page-11 { background-image: url("images/11.jpg"); }
-.page-12 { background-image: url("images/12.jpg"); }
-.page-13 { background-image: url("images/13.jpg"); }
-.page-14 { background-image: url("images/14.jpg"); }
-.page-15 { background-image: url("images/15.jpg"); }
-.page-16 { background-image: url("images/16.jpg"); }
 
 /* Navegação */
 .flipbook-nav {
@@ -108,7 +88,7 @@ body {
   color: black;
 }
 
-/* Responsivo para Mobile */
+/* Responsivo Mobile */
 @media (max-width: 768px) {
   .flipbook {
     width: 400px;
