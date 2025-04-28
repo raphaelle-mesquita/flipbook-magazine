@@ -24,13 +24,15 @@ body {
   justify-content: center;
 }
 
+/* Flipbook sempre com borda arredondada */
 .flipbook {
   width: 1200px;
   height: 600px;
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
-  overflow: hidden;
+  border-radius: 16px; /* <<< borda sempre ativa */
+  overflow: hidden; /* importante pra borda funcionar direito */
 }
 
 /* Páginas */
@@ -41,8 +43,27 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: none;
   overflow: hidden;
 }
+
+/* BACKGROUNDS DAS PÁGINAS */
+.page-01 { background-image: url("images/01.jpg"); }
+.page-02 { background-image: url("images/02.jpg"); }
+.page-03 { background-image: url("images/03.jpg"); }
+.page-04 { background-image: url("images/04.jpg"); }
+.page-05 { background-image: url("images/05.jpg"); }
+.page-06 { background-image: url("images/06.jpg"); }
+.page-07 { background-image: url("images/07.jpg"); }
+.page-08 { background-image: url("images/08.jpg"); }
+.page-09 { background-image: url("images/09.jpg"); }
+.page-10 { background-image: url("images/10.jpg"); }
+.page-11 { background-image: url("images/11.jpg"); }
+.page-12 { background-image: url("images/12.jpg"); }
+.page-13 { background-image: url("images/13.jpg"); }
+.page-14 { background-image: url("images/14.jpg"); }
+.page-15 { background-image: url("images/15.jpg"); }
+.page-16 { background-image: url("images/16.jpg"); }
 
 /* Navegação */
 .flipbook-nav {
