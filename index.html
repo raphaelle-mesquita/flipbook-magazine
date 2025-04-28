@@ -44,22 +44,22 @@
     $(document).ready(function () {
       const flip = $('#flipbook');
 
-      // Inicializa o flipbook respeitando o formato quadrado (mobile e desktop)
+      // Inicializa o flipbook respeitando formatos para mobile e desktop
       flip.turn({
-        width: $(window).width() < 768 ? 400 : 600, // 📏 width quadrado
-        height: $(window).width() < 768 ? 400 : 600, // 📏 height quadrado
+        width: $(window).width() < 768 ? 400 : 1200,
+        height: $(window).width() < 768 ? 400 : 600,
         autoCenter: true,
         duration: 300,
-        display: $(window).width() < 768 ? 'single' : 'double' // 📱 Mobile: single page
+        display: $(window).width() < 768 ? 'single' : 'double'
       });
 
-      // Responsivo: ajusta ao redimensionar a janela
+      // Ajusta quando redimensionar a tela
       $(window).resize(function () {
         flip.turn('display', $(window).width() < 768 ? 'single' : 'double');
-        flip.turn('size', $(window).width() < 768 ? 400 : 600, $(window).width() < 768 ? 400 : 600);
+        flip.turn('size', $(window).width() < 768 ? 400 : 1200, $(window).width() < 768 ? 400 : 600);
       });
 
-      // Efeito teaser automático
+      // Efeito teaser automático (vira 3 páginas sozinho)
       let teaserCount = 0;
       const maxTeaser = 3;
 
@@ -74,7 +74,7 @@
         }
       }, 900);
 
-      // Navegação pelas setas
+      // Botões de navegação
       document.getElementById("prevPage").addEventListener("click", () => {
         flip.turn("previous");
       });
@@ -82,15 +82,6 @@
       document.getElementById("nextPage").addEventListener("click", () => {
         flip.turn("next");
       });
-
-      // Se quiser manter o clique para abrir em nova aba, ativar este bloco:
-      /*
-      document.querySelector('.flipbook').addEventListener('click', function (event) {
-        if (!event.target.closest('.flipbook-nav')) {
-          window.open('https://flipbook-magazine.vercel.app/', '_blank');
-        }
-      });
-      */
     });
   </script>
 
