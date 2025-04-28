@@ -67,10 +67,10 @@ body {
 
 /* NAVEGAÇÃO */
 .flipbook-nav {
-  margin-top: 20px;
+  margin-top: 8px;
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .flipbook-nav button {
