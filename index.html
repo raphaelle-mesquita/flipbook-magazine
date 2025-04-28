@@ -44,22 +44,41 @@
     $(document).ready(function () {
       const flip = $('#flipbook');
 
-      // Inicializa o flipbook respeitando formatos para mobile e desktop
+      function adjustFlipbook() {
+        if (window.innerWidth < 768) {
+          // Mobile
+          if (window.innerWidth > window.innerHeight) {
+            // Landscape (deitado)
+            flip.turn('size', 700, 500);
+            flip.turn('display', 'double');
+          } else {
+            // Portrait (em pé)
+            flip.turn('size', 400, 400);
+            flip.turn('display', 'single');
+          }
+        } else {
+          // Desktop
+          flip.turn('size', 1200, 600);
+          flip.turn('display', 'double');
+        }
+      }
+
+      // Inicializa o flipbook
       flip.turn({
-        width: $(window).width() < 768 ? 400 : 1200,
-        height: $(window).width() < 768 ? 400 : 600,
+        width: 1200,
+        height: 600,
         autoCenter: true,
         duration: 300,
-        display: $(window).width() < 768 ? 'single' : 'double'
+        display: 'double'
       });
 
-      // Ajusta quando redimensionar a tela
+      adjustFlipbook(); // já ajusta na primeira vez
+
       $(window).resize(function () {
-        flip.turn('display', $(window).width() < 768 ? 'single' : 'double');
-        flip.turn('size', $(window).width() < 768 ? 400 : 1200, $(window).width() < 768 ? 400 : 600);
+        adjustFlipbook();
       });
 
-      // Efeito teaser automático (vira 3 páginas sozinho)
+      // Efeito teaser automático (vira 3 páginas no começo)
       let teaserCount = 0;
       const maxTeaser = 3;
 
