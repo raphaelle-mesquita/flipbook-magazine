@@ -42,7 +42,6 @@ body {
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;
-  /* 🔥 REMOVIDO QUALQUER BORDA 🔥 */
 }
 
 /* BACKGROUNDS DAS PÁGINAS */
@@ -63,7 +62,6 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* 🔥 AQUI FOI REMOVIDO OS ARREDONDAMENTOS 🔥 */
 
 /* NAVEGAÇÃO */
 .flipbook-nav {
@@ -89,11 +87,13 @@ body {
   color: black;
 }
 
-/* MOBILE ADAPTATION (opcional para telas pequenas) */
+/* MOBILE ADAPTATION */
 @media (max-width: 768px) {
   .flipbook {
-    width: 100vw;
-    height: 60vw;
+    width: 400px; /* <<< aqui ajustei pra 400px */
+    height: 550px; /* altura proporcional pra visual ficar bonito */
+    max-width: 90vw; /* segurança pra responsividade extrema */
+    max-height: 90vh;
   }
 
   .flipbook-nav button {
