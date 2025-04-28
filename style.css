@@ -103,5 +103,30 @@ body {
   .flipbook-nav button {
     font-size: 16px;
     padding: 6px 16px;
+
+    <style>
+iframe {
+  width: 80%;
+  height: 70vh;
+  border: none;
+  background: transparent;
+}
+
+/* Ajuste especial para mobile landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+  iframe {
+    width: 90%;
+    height: 60vh; /* Menor pra caber no landscape */
+  }
+}
+
+/* Ajuste para mobile portrait normal */
+@media (max-width: 768px) and (orientation: portrait) {
+  iframe {
+    width: 95%;
+    height: 70vh;
+  }
+}
+</style>
   }
 }
