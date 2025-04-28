@@ -24,16 +24,16 @@ body {
   justify-content: center;
 }
 
-/* Flipbook Quadrado */
+/* Desktop Flipbook */
 .flipbook {
-  width: 600px;
+  width: 1200px;
   height: 600px;
   max-width: 90vw;
-  max-height: 90vw;
+  max-height: 90vh;
   position: relative;
 }
 
-/* Estilo das páginas */
+/* Páginas */
 .page,
 .hard {
   width: 50%;
