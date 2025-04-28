@@ -73,8 +73,7 @@ body {
   gap: 16px;
 }
 
-.flipbook-nav button,
-#fullscreenBtn {
+.view-pdf-button {
   background: transparent;
   color: white;
   font-size: 18px;
@@ -82,7 +81,15 @@ body {
   border: 2px solid white;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.view-pdf-button:hover {
+  background: white;
+  color: black;
+}
+
 }
 
 .flipbook-nav button:hover,
