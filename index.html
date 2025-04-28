@@ -10,7 +10,7 @@
 
 <body>
   <div class="flipbook-wrapper">
-    <div class="flipbook">
+    <div id="flipbook" class="flipbook">
       <div class="hard page-01"></div>
       <div class="hard page-02"></div>
 
@@ -32,59 +32,66 @@
     </div>
 
     <div class="flipbook-nav">
-  <button id="prevPage">&#8592;</button> <!-- ← -->
-  <button id="nextPage">&#8594;</button> <!-- → -->
-</div>
-    
+      <button id="prevPage">&#8592;</button> <!-- ← -->
+      <button id="nextPage">&#8594;</button> <!-- → -->
+    </div>
   </div>
 
   <script src="jquery.js"></script>
   <script src="turn.js"></script>
+
   <script>
-    const flip = $(".flipbook");
-    flip.turn();
+    $(document).ready(function () {
+      const flip = $('#flipbook');
 
-    // Efeito teaser automático
-    let teaserCount = 0;
-    const maxTeaser = 3;
+      // Inicializa o flipbook com ajustes para mobile e desktop
+      flip.turn({
+        width: 1000,
+        height: 500,
+        autoCenter: true,
+        duration: 300,
+        display: $(window).width() < 768 ? 'single' : 'double' // 📱 Detecta mobile para 1 página
+      });
 
-    const flipTeaser = setInterval(() => {
-      teaserCount++;
-      flip.turn('next');
-      if (teaserCount >= maxTeaser) {
-        clearInterval(flipTeaser);
-        setTimeout(() => {
-          flip.turn('page', 1);
-        }, 1000);
-      }
-    }, 900);
+      // Ajusta se a janela for redimensionada
+      $(window).resize(function () {
+        flip.turn('display', $(window).width() < 768 ? 'single' : 'double');
+      });
 
-    // Setas de navegação
-    document.getElementById("prevPage").addEventListener("click", () => {
-      flip.turn("previous");
-    });
+      // Efeito teaser automático
+      let teaserCount = 0;
+      const maxTeaser = 3;
 
-    document.getElementById("nextPage").addEventListener("click", () => {
-      flip.turn("next");
+      const flipTeaser = setInterval(() => {
+        teaserCount++;
+        flip.turn('next');
+        if (teaserCount >= maxTeaser) {
+          clearInterval(flipTeaser);
+          setTimeout(() => {
+            flip.turn('page', 1);
+          }, 1000);
+        }
+      }, 900);
+
+      // Navegação pelas setas
+      document.getElementById("prevPage").addEventListener("click", () => {
+        flip.turn("previous");
+      });
+
+      document.getElementById("nextPage").addEventListener("click", () => {
+        flip.turn("next");
+      });
+
+      // Se quiser manter o clique para expandir em nova aba, ativa aqui:
+      /*
+      document.querySelector('.flipbook').addEventListener('click', function (event) {
+        if (!event.target.closest('.flipbook-nav')) {
+          window.open('https://flipbook-magazine.vercel.app/', '_blank');
+        }
+      });
+      */
     });
   </script>
-  <script>
-  $(document).ready(function(){
-    $('#flipbook').turn({
-      width: 1000,
-      height: 500,
-      autoCenter: true
-    });
-
-    // Clique no flipbook para abrir em nova aba
-    document.querySelector('.flipbook').addEventListener('click', function (event) {
-      // Só abre se clicar fora dos botões de navegação
-      if (!event.target.closest('.flipbook-nav')) {
-        window.open('https://flipbook-magazine.vercel.app/', '_blank');
-      }
-    });
-  });
-</script>
 
 </body>
 
