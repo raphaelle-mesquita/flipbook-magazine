@@ -24,24 +24,24 @@ body {
   justify-content: center;
 }
 
-/* Responsivo com base na tela */
 .flipbook {
-  width: 90vw;          /* 90% da largura da tela */
-  height: 45vw;         /* altura proporcional ao layout de 2 páginas */
+  width: 90vw;
+  height: 45vw;
   max-width: 1000px;
   max-height: 500px;
   position: relative;
+  cursor: pointer; /* Adiciona cursor para indicar clique */
 }
 
-.page,
-.hard {
-  width: 50%;                /* cada página ocupa metade do flipbook */
+/* Páginas */
+.page, .hard {
+  width: 50%;
   height: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  border: none;
   overflow: hidden;
+  border: none;
 }
 
 /* BACKGROUNDS DAS PÁGINAS */
@@ -62,17 +62,15 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-/* Cantos arredondados nas extremidades */
-.page:first-child,
-.hard:first-child {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-
-.page:last-child,
-.hard:last-child {
+/* 🔥 Cantos arredondados para páginas da DIREITA 🔥 */
+.page:nth-child(even) {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+/* As páginas da esquerda ficam retinhas */
+.page:nth-child(odd) {
+  border-radius: 0;
 }
 
 /* NAVEGAÇÃO */
@@ -99,7 +97,7 @@ body {
   color: black;
 }
 
-/* MOBILE ADAPTATION (opcional para telas pequenas) */
+/* 📱 MOBILE Responsivo */
 @media (max-width: 768px) {
   .flipbook {
     width: 100vw;
@@ -109,5 +107,12 @@ body {
   .flipbook-nav button {
     font-size: 16px;
     padding: 6px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flipbook {
+    width: 100vw;
+    height: 75vw;
   }
 }
