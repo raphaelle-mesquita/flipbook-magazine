@@ -32,9 +32,9 @@
     </div>
 
     <div class="flipbook-nav">
-      <button id="prevPage">&#8592;</button> <!-- ← -->
-      <button id="nextPage">&#8594;</button> <!-- → -->
-      <button id="fullscreenBtn">⛶</button> <!-- Botão de Fullscreen -->
+      <button id="prevPage">&#8592;</button>
+      <button id="nextPage">&#8594;</button>
+      <button id="fullscreenBtn">⛶</button>
     </div>
   </div>
 
@@ -47,14 +47,15 @@
 
       function adjustFlipbook() {
         if (window.innerWidth < 768) {
-          if (window.innerWidth > window.innerHeight) {
-            flip.turn('size', 700, 500);
-            flip.turn('display', 'double');
-          } else {
-            flip.turn('size', 400, 400);
-            flip.turn('display', 'single');
-          }
+          // Mobile Portrait
+          flip.turn('size', 400, 400);
+          flip.turn('display', 'single');
+        } else if (window.innerWidth > window.innerHeight && window.innerWidth < 1024) {
+          // Mobile Landscape (deitado)
+          flip.turn('size', 700, 500);
+          flip.turn('display', 'double');
         } else {
+          // Desktop normal
           flip.turn('size', 1200, 600);
           flip.turn('display', 'double');
         }
@@ -74,20 +75,6 @@
         adjustFlipbook();
       });
 
-      // Efeito teaser
-      let teaserCount = 0;
-      const maxTeaser = 3;
-      const flipTeaser = setInterval(() => {
-        teaserCount++;
-        flip.turn('next');
-        if (teaserCount >= maxTeaser) {
-          clearInterval(flipTeaser);
-          setTimeout(() => {
-            flip.turn('page', 1);
-          }, 1000);
-        }
-      }, 900);
-
       // Botões de navegação
       document.getElementById("prevPage").addEventListener("click", () => {
         flip.turn("previous");
@@ -97,15 +84,15 @@
         flip.turn("next");
       });
 
-      // Botão de Fullscreen
+      // Botão de Fullscreen corrigido
       document.getElementById("fullscreenBtn").addEventListener("click", () => {
-        const wrapper = document.querySelector(".flipbook-wrapper");
-        if (wrapper.requestFullscreen) {
-          wrapper.requestFullscreen();
-        } else if (wrapper.webkitRequestFullscreen) {
-          wrapper.webkitRequestFullscreen();
-        } else if (wrapper.msRequestFullscreen) {
-          wrapper.msRequestFullscreen();
+        const flipbookWrapper = document.querySelector('.flipbook-wrapper');
+        if (flipbookWrapper.requestFullscreen) {
+          flipbookWrapper.requestFullscreen();
+        } else if (flipbookWrapper.webkitRequestFullscreen) {
+          flipbookWrapper.webkitRequestFullscreen();
+        } else if (flipbookWrapper.msRequestFullscreen) {
+          flipbookWrapper.msRequestFullscreen();
         }
       });
     });
