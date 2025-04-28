@@ -44,18 +44,19 @@
     $(document).ready(function () {
       const flip = $('#flipbook');
 
-      // Inicializa o flipbook com ajustes para mobile e desktop
+      // Inicializa o flipbook respeitando o formato quadrado (mobile e desktop)
       flip.turn({
-        width: 1000,
-        height: 500,
+        width: $(window).width() < 768 ? 400 : 600, // 📏 width quadrado
+        height: $(window).width() < 768 ? 400 : 600, // 📏 height quadrado
         autoCenter: true,
         duration: 300,
-        display: $(window).width() < 768 ? 'single' : 'double' // 📱 Detecta mobile para 1 página
+        display: $(window).width() < 768 ? 'single' : 'double' // 📱 Mobile: single page
       });
 
-      // Ajusta se a janela for redimensionada
+      // Responsivo: ajusta ao redimensionar a janela
       $(window).resize(function () {
         flip.turn('display', $(window).width() < 768 ? 'single' : 'double');
+        flip.turn('size', $(window).width() < 768 ? 400 : 600, $(window).width() < 768 ? 400 : 600);
       });
 
       // Efeito teaser automático
@@ -82,7 +83,7 @@
         flip.turn("next");
       });
 
-      // Se quiser manter o clique para expandir em nova aba, ativa aqui:
+      // Se quiser manter o clique para abrir em nova aba, ativar este bloco:
       /*
       document.querySelector('.flipbook').addEventListener('click', function (event) {
         if (!event.target.closest('.flipbook-nav')) {
