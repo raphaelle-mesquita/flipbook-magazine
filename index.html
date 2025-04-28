@@ -86,6 +86,57 @@
         }
       });
     });
+
+    $(document).ready(function () {
+  const flip = $('#flipbook');
+
+  function adjustFlipbook() {
+    if (window.innerWidth < 768) {
+      flip.turn('size', 400, 400);
+      flip.turn('display', 'single');
+    } else if (window.innerWidth > window.innerHeight && window.innerWidth < 1024) {
+      flip.turn('size', 700, 500);
+      flip.turn('display', 'double');
+    } else {
+      flip.turn('size', 1200, 600);
+      flip.turn('display', 'double');
+    }
+  }
+
+  flip.turn({
+    width: 1200,
+    height: 600,
+    autoCenter: true,
+    duration: 600, /* duração da animação */
+    acceleration: true,
+    elevation: 50,
+    gradients: true,
+    display: 'double'
+  });
+
+  adjustFlipbook();
+  $(window).resize(adjustFlipbook);
+
+  document.getElementById("prevPage").addEventListener("click", () => {
+    flip.turn("previous");
+  });
+
+  document.getElementById("nextPage").addEventListener("click", () => {
+    flip.turn("next");
+  });
+
+  document.getElementById("fullscreenBtn").addEventListener("click", () => {
+    const flipWrapper = document.querySelector('.flipbook-wrapper');
+    if (flipWrapper.requestFullscreen) {
+      flipWrapper.requestFullscreen();
+    } else if (flipWrapper.webkitRequestFullscreen) {
+      flipWrapper.webkitRequestFullscreen();
+    } else if (flipWrapper.msRequestFullscreen) {
+      flipWrapper.msRequestFullscreen();
+    }
+  });
+});
+
   </script>
 
 </body>
