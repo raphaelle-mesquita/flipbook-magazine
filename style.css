@@ -24,13 +24,13 @@ body {
   justify-content: center;
 }
 
-/* Desktop Flipbook */
 .flipbook {
   width: 1200px;
   height: 600px;
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
+  overflow: hidden;
 }
 
 /* Páginas */
@@ -43,6 +43,25 @@ body {
   background-repeat: no-repeat;
   border: none;
   overflow: hidden;
+}
+
+/* Bordas específicas */
+/* Borda esquerda da PRIMEIRA página */
+.hard:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+/* Borda direita da ÚLTIMA página */
+.hard:last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+/* Se for apenas uma página visível (mobile ou capa) */
+.page:first-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* BACKGROUNDS DAS PÁGINAS */
@@ -71,7 +90,8 @@ body {
   gap: 16px;
 }
 
-.flipbook-nav button {
+.flipbook-nav button,
+#fullscreenBtn {
   background: transparent;
   color: white;
   font-size: 18px;
@@ -82,7 +102,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.flipbook-nav button:hover {
+.flipbook-nav button:hover,
+#fullscreenBtn:hover {
   background: white;
   color: black;
 }
