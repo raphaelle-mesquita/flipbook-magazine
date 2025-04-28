@@ -113,35 +113,6 @@
         } else if (wrapper.msRequestFullscreen) {
           wrapper.msRequestFullscreen();
         }
-        <style>
-iframe {
-  width: 80%;
-  height: 70vh;
-  border: none;
-  background: transparent;
-}
-
-/* Ajuste para mobile landscape */
-@media (max-width: 1024px) and (orientation: landscape) {
-  iframe {
-    width: 90%;
-    height: 60vh;
-  }
-}
-
-/* Ajuste para mobile portrait */
-@media (max-width: 768px) and (orientation: portrait) {
-  iframe {
-    width: 95%;
-    height: 70vh;
-  }
-}
-</style>
-
-<iframe
-  src="https://flipbook-magazine.vercel.app/"
-  loading="lazy">
-</iframe>
       });
     });
   </script>
