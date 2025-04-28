@@ -24,20 +24,21 @@ body {
   justify-content: center;
 }
 
-/* Responsivo com base na tela */
+/* Flipbook Quadrado */
 .flipbook {
-  width: 90vw;          /* 90% da largura da tela */
-  height: 45vw;         /* altura proporcional ao layout de 2 páginas */
-  max-width: 1000px;
-  max-height: 500px;
+  width: 600px;
+  height: 600px;
+  max-width: 90vw;
+  max-height: 90vw;
   position: relative;
 }
 
+/* Estilo das páginas */
 .page,
 .hard {
-  width: 50%;                /* cada página ocupa metade do flipbook */
+  width: 50%;
   height: 100%;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border: none;
@@ -62,8 +63,7 @@ body {
 .page-15 { background-image: url("images/15.jpg"); }
 .page-16 { background-image: url("images/16.jpg"); }
 
-
-/* NAVEGAÇÃO */
+/* Navegação */
 .flipbook-nav {
   margin-top: 12px;
   display: flex;
@@ -87,13 +87,13 @@ body {
   color: black;
 }
 
-/* MOBILE ADAPTATION */
+/* Responsivo para Mobile */
 @media (max-width: 768px) {
   .flipbook {
-    width: 400px; /* <<< aqui ajustei pra 400px */
-    height: 550px; /* altura proporcional pra visual ficar bonito */
-    max-width: 90vw; /* segurança pra responsividade extrema */
-    max-height: 90vh;
+    width: 400px;
+    height: 400px;
+    max-width: 90vw;
+    max-height: 90vw;
   }
 
   .flipbook-nav button {
