@@ -34,6 +34,7 @@
     <div class="flipbook-nav">
       <button id="prevPage">&#8592;</button> <!-- ← -->
       <button id="nextPage">&#8594;</button> <!-- → -->
+      <button id="fullscreenBtn">⛶</button> <!-- Botão de Fullscreen -->
     </div>
   </div>
 
@@ -46,24 +47,19 @@
 
       function adjustFlipbook() {
         if (window.innerWidth < 768) {
-          // Mobile
           if (window.innerWidth > window.innerHeight) {
-            // Landscape (deitado)
             flip.turn('size', 700, 500);
             flip.turn('display', 'double');
           } else {
-            // Portrait (em pé)
             flip.turn('size', 400, 400);
             flip.turn('display', 'single');
           }
         } else {
-          // Desktop
           flip.turn('size', 1200, 600);
           flip.turn('display', 'double');
         }
       }
 
-      // Inicializa o flipbook
       flip.turn({
         width: 1200,
         height: 600,
@@ -72,16 +68,15 @@
         display: 'double'
       });
 
-      adjustFlipbook(); // já ajusta na primeira vez
+      adjustFlipbook();
 
       $(window).resize(function () {
         adjustFlipbook();
       });
 
-      // Efeito teaser automático (vira 3 páginas no começo)
+      // Efeito teaser
       let teaserCount = 0;
       const maxTeaser = 3;
-
       const flipTeaser = setInterval(() => {
         teaserCount++;
         flip.turn('next');
@@ -100,6 +95,18 @@
 
       document.getElementById("nextPage").addEventListener("click", () => {
         flip.turn("next");
+      });
+
+      // Botão de Fullscreen
+      document.getElementById("fullscreenBtn").addEventListener("click", () => {
+        const wrapper = document.querySelector(".flipbook-wrapper");
+        if (wrapper.requestFullscreen) {
+          wrapper.requestFullscreen();
+        } else if (wrapper.webkitRequestFullscreen) {
+          wrapper.webkitRequestFullscreen();
+        } else if (wrapper.msRequestFullscreen) {
+          wrapper.msRequestFullscreen();
+        }
       });
     });
   </script>
